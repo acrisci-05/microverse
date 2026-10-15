@@ -1,0 +1,18 @@
+.planet-renderer{position:relative;width:100%;height:100%;min-height:180px;isolation:isolate;user-select:none;-webkit-user-select:none}
+.planet-canvas{display:block;width:100%;height:100%;opacity:0;transition:opacity 1.2s ease;outline:none}
+.planet-renderer.is-ready .planet-canvas{opacity:1}
+.planet-renderer.is-interactive .planet-canvas{cursor:grab;touch-action:none}
+.planet-renderer.is-dragging .planet-canvas{cursor:grabbing}
+.planet-canvas:focus-visible{outline:1px solid #bcecc788;outline-offset:-6px;border-radius:18px}
+.planet-fallback{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.planet-fallback .planet-thumbnail{width:min(90%,660px)!important;height:auto!important;max-height:94%;aspect-ratio:1;object-fit:contain;filter:drop-shadow(0 0 34px #5dd8da14)}
+.planet-fallback-note{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:11px;color:#90a5ad;white-space:nowrap;letter-spacing:.03em}
+.planet-thumbnail{display:block;flex-shrink:0;object-fit:contain}
+.planet-controls{position:absolute;z-index:3;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:3px;padding:6px;border:1px solid #afc6ce21;background:#101a1dcc;border-radius:100px;backdrop-filter:blur(12px);box-shadow:0 4px 20px #0002}
+.planet-controls button{display:grid;place-items:center;width:34px;height:34px;padding:0;border:0;border-radius:50%;color:#b9cdcf;background:transparent;cursor:pointer;transition:background .2s,color .2s}
+.planet-controls button:hover{background:#b5f0d515;color:#d1fce6}
+.planet-controls button:focus-visible{outline:2px solid #bcecc7;outline-offset:2px}
+.planet-control-divider{width:1px;height:15px;background:#a5c5c522;margin:0 4px}
+@media(prefers-reduced-motion:reduce){.planet-canvas{transition:none}.planet-controls button{transition:none}}
+[data-reduced-motion="true"] .planet-canvas,[data-reduced-motion="true"] .planet-controls button{transition:none}
+@media(max-width:600px){.planet-controls{bottom:10px}.planet-controls button{width:36px;height:36px}}
